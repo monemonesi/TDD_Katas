@@ -39,7 +39,33 @@ namespace NumbersInWordsLibrary.Tests
         [TestCase(17, "seventeen")]
         [TestCase(18, "eighteen")]
         [TestCase(19, "nineteen")]
-        public void Convert_0_to_19_InWords(int input, string expected)
+        public void ConvertInWords_0_to_19(int input, string expected)
+        {
+            string output = converter.ConvertToWords(input);
+
+            Assert.AreEqual(expected, output);
+        }
+        #endregion
+
+
+        #region TestCase 20To99
+        [TestCase(20, "twenty")]
+        [TestCase(21,"twenty-one")]
+        [TestCase(30, "thirty")]
+        [TestCase(35,"thirty-five")]
+        [TestCase(40, "fourty")]
+        [TestCase(42, "fourty-two")]
+        [TestCase(50, "fifty")]
+        [TestCase(53, "fifty-three")]
+        [TestCase(60, "sixty")]
+        [TestCase(64, "sixty-four")]
+        [TestCase(70, "seventy")]
+        [TestCase(79, "seventy-nine")]
+        [TestCase(80, "eighty")]
+        [TestCase(88, "eighty-eight")]
+        [TestCase(90, "ninety")]
+        [TestCase(97, "ninety-seven")]
+        public void ConvertInWords_20_To_99(int input, string expected)
         {
             string output = converter.ConvertToWords(input);
 

@@ -17,14 +17,21 @@ namespace NumbersInWordsLibrary
         {
             if (input >= 0 && input <= 19)
             {
-                return Convert_From0To19_ToWords(input);
+                return ConvertToWords_0To19(input);
+            }
+            else if (input <= 99)
+            {
+                return ConvertToWords_20To99(input);
             }
             else
             {
                 return null;
             }
 
+
         }
+
+        
 
         /// <summary>
         /// Convert number from 0 to 19.
@@ -32,7 +39,7 @@ namespace NumbersInWordsLibrary
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        public string Convert_From0To19_ToWords(int input)
+        private string ConvertToWords_0To19(int input)
         {
             switch (input)
             {
@@ -80,6 +87,68 @@ namespace NumbersInWordsLibrary
             return null;
         }
 
-        
+
+        /// <summary>
+        /// Convert numbers from 20 To 99.
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        private string ConvertToWords_20To99(int input)
+        {
+            int latestNumber = input%10;
+            int tens = input - latestNumber;
+
+            return TwoWordsNumbers(tens, latestNumber);
+        }
+
+        /// <summary>
+        /// Convert all the two words numbers
+        /// </summary>
+        /// <param name="first">represent the tens</param>
+        /// <param name="second"> represent the units</param>
+        /// <returns></returns>
+        private string TwoWordsNumbers(int first, int second)
+        {
+            string numberInWords = string.Empty;
+            numberInWords += ConvertTens(first);
+
+            if (second != 0)
+            {
+                numberInWords += "-";
+                numberInWords += ConvertToWords_0To19(second);
+            }
+            
+            return numberInWords;
+        }
+
+        /// <summary>
+        /// Convert the tens in words
+        /// </summary>
+        /// <param name="tens"></param>
+        /// <returns></returns>
+        private static string ConvertTens(int tens)
+        {
+            switch (tens)
+            {
+                case 20:
+                    return "twenty";
+                case 30:
+                    return "thirty";
+                case 40:
+                    return "fourty";
+                case 50:
+                    return "fifty";
+                case 60:
+                    return "sixty";
+                case 70:
+                    return "seventy";
+                case 80:
+                    return "eighty";
+                case 90:
+                    return "ninety";
+            }
+
+            return string.Empty;
+        }
     }
 }
