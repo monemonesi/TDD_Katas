@@ -23,15 +23,19 @@ namespace NumbersInWordsLibrary
             {
                 return ConvertToWords_20To99(input);
             }
+            else if( input <= 999)
+            {
+                return ConvertToWords_100To999(input);
+            }
             else
             {
                 return null;
             }
-
-
         }
 
         
+
+
 
         /// <summary>
         /// Convert number from 0 to 19.
@@ -95,19 +99,63 @@ namespace NumbersInWordsLibrary
         /// <returns></returns>
         private string ConvertToWords_20To99(int input)
         {
-            int latestNumber = input%10;
-            int tens = input - latestNumber;
+            int units = input%10;
+            int tens = input - units;
 
-            return TwoWordsNumbers(tens, latestNumber);
+            return TwoDigitNumbers(tens, units);
         }
 
         /// <summary>
-        /// Convert all the two words numbers
+        /// COnvert numbers from 100 to 999
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        private string ConvertToWords_100To999(int input)
+        {
+            int tens = input % 100;
+            int hundreds = (input - tens) / 100;
+
+            return ThreeDigitNumbers(hundreds, tens);
+        }
+
+        /// <summary>
+        /// Convert all three digit numbers
+        /// </summary>
+        /// <param name="hundreds"></param>
+        /// <param name="tens"></param>
+        /// <returns></returns>
+        private string ThreeDigitNumbers(int hundreds, int tens)
+        {
+            string numberInWords = string.Empty;
+            numberInWords += ConvertHundreds(hundreds);
+
+            if(tens != 0)
+            {
+                numberInWords += " ";
+                numberInWords += ConvertToWords(tens);
+            }
+            return numberInWords;
+        }
+
+        /// <summary>
+        /// Create the hendreds bit od string
+        /// </summary>
+        /// <param name="hundreds"></param>
+        /// <returns></returns>
+        private string ConvertHundreds(int hundreds)
+        {
+            string hundredsText = ConvertToWords_0To19(hundreds);
+            hundredsText += " hundred";
+            return  hundredsText;
+        }
+
+        /// <summary>
+        /// Convert the two digits numbers
         /// </summary>
         /// <param name="first">represent the tens</param>
         /// <param name="second"> represent the units</param>
         /// <returns></returns>
-        private string TwoWordsNumbers(int first, int second)
+        private string TwoDigitNumbers(int first, int second)
         {
             string numberInWords = string.Empty;
             numberInWords += ConvertTens(first);

@@ -72,5 +72,23 @@ namespace NumbersInWordsLibrary.Tests
             Assert.AreEqual(expected, output);
         }
         #endregion
+
+        #region TestCase 100To999
+        [TestCase(100, "one hundred")]
+        [TestCase(105, "one hundred five")]
+        [TestCase(200, "two hundred")]
+        [TestCase(500, "five hundred")]
+        [TestCase(512, "five hundred twelve")]
+        [TestCase(700, "seven hundred")]
+        [TestCase(750, "seven hundred fifty")]
+        [TestCase(900, "nine hundred")]
+        [TestCase(999, "nine hundred ninety-nine")]
+        public void ConvertInWords_100_To_999(int input, string expected)
+        {
+            string output = converter.ConvertToWords(input);
+
+            Assert.AreEqual(expected, output);
+        }
+        #endregion
     }
 }
