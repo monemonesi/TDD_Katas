@@ -58,6 +58,21 @@ namespace Tests
             Assert.AreEqual(expected, result);
         }
 
+        [TestCase(100,"C")]
+        [TestCase(102,"CII")]
+        [TestCase(255, "CCLV")]
+        [TestCase(300, "CCC")]
+        [TestCase(499, "CDXCIX")]
+        [TestCase(527, "DXXVII")]
+        [TestCase(830, "DCCCXXX")]
+        [TestCase(999, "CMXCIX")]
+        public void ToRoman_NumFrom100To999(int num, string expected)
+        {
+            string result = converter.ToRoman(num);
+
+            Assert.AreEqual(expected, result);
+        }
+
         
     }
 }

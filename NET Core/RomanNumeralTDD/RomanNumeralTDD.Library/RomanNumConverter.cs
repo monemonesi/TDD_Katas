@@ -32,24 +32,78 @@ namespace RomanNumeralTDD.Library
         /// <returns></returns>
         private static string FindRange(int num)
         {
-            if (num < 10)
+            if (num <= 9)
             {
-                return ConvertNumberFromZeroToNine(num);
+                return ConvertNumberFrom0To9(num);
             }
-            else if (num < 99)
+            else if (num <= 99)
             {
-                return ConvertNumberFromTenToNintyNine(num);
+                return ConvertNumberFrom10To99(num);
+            }
+            else if(num <= 999)
+            {
+                return ConvertNumberFrom100To999(num);
             }
 
             return String.Empty;
         }
 
         /// <summary>
-        /// Convert to romna all the numbers between 10 and 99
+        /// Convert to romans all the number between 100 and 999
         /// </summary>
         /// <param name="num"></param>
         /// <returns></returns>
-        private static string ConvertNumberFromTenToNintyNine(int num)
+        private static string ConvertNumberFrom100To999(int num)
+        {
+            int tens = num % 100;
+            int hundreds = num - tens;
+
+            string romanHundreds = string.Empty;
+
+            switch (hundreds)
+            {
+                case 100:
+                    romanHundreds = "C";
+                    break;
+                case 200:
+                    romanHundreds = "CC";
+                    break;
+                case 300:
+                    romanHundreds = "CCC";
+                    break;
+                case 400:
+                    romanHundreds = "CD";
+                    break;
+                case 500:
+                    romanHundreds = "D";
+                    break;
+                case 600:
+                    romanHundreds = "DC";
+                    break;
+                case 700:
+                    romanHundreds = "DC";
+                    break;
+                case 800:
+                    romanHundreds = "DCCC";
+                    break;
+                case 900:
+                    romanHundreds = "CM";
+                    break;
+                default:
+                    break;
+            }
+
+            romanHundreds += ConvertNumberFrom10To99(tens);
+
+            return romanHundreds;
+        }
+
+        /// <summary>
+        /// Convert to romnans all the numbers between 10 and 99
+        /// </summary>
+        /// <param name="num"></param>
+        /// <returns></returns>
+        private static string ConvertNumberFrom10To99(int num)
         {
             int units = num % 10;
             int tens = num - units;
@@ -90,7 +144,7 @@ namespace RomanNumeralTDD.Library
                     break;
             }
 
-            romanTens += ConvertNumberFromZeroToNine(units);
+            romanTens += ConvertNumberFrom0To9(units);
 
             return romanTens;
         }
@@ -100,7 +154,7 @@ namespace RomanNumeralTDD.Library
         /// </summary>
         /// <param name="num"></param>
         /// <returns></returns>
-        private static string ConvertNumberFromZeroToNine(int num)
+        private static string ConvertNumberFrom0To9(int num)
         {
             switch (num)
             {
