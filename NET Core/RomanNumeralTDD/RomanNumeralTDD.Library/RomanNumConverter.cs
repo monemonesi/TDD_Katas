@@ -2,7 +2,7 @@
 
 namespace RomanNumeralTDD.Library
 {
-    public class RomanNumeralConverter
+    public class RomanNumConverter
     {
     }
 }
