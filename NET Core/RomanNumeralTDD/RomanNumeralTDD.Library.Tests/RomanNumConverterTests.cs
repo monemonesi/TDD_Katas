@@ -13,7 +13,7 @@ namespace Tests
             converter = new RomanNumConverter();
         }
 
-        [TestCase(0, "Romans didn`t know how to say 0")]
+        [TestCase(0, "")]
         [TestCase(-15, "Please insert a positive number")]
         public void ToRoman_NumLessEqualThen0_ExpectedErrorString(int num, string expected)
         {
@@ -31,12 +31,33 @@ namespace Tests
         [TestCase(7,"VII")]
         [TestCase(8,"VIII")]
         [TestCase(9,"IX")]
-        [TestCase(10,"X")]
-        public void ToRoman_NumFormOneToTen(int num, string expected)
+        public void ToRoman_NumFromOneToNine(int num, string expected)
         {
             string result = converter.ToRoman(num);
 
             Assert.AreEqual(expected, result);
         }
+
+        [TestCase(10,"X")]
+        [TestCase(11,"XI")]
+        [TestCase(15,"XV")]
+        [TestCase(20,"XX")]
+        [TestCase(33,"XXXIII")]
+        [TestCase(44,"XLIV")]
+        [TestCase(57,"LVII")]
+        [TestCase(62,"LXII")]
+        [TestCase(70,"LXX")]
+        [TestCase(79,"LXXIX")]
+        [TestCase(86,"LXXXVI")]
+        [TestCase(90,"XC")]
+        [TestCase(93,"XCIII")]
+        public void ToRoman_NumFromTenTo99(int num, string expected)
+        {
+            string result = converter.ToRoman(num);
+
+            Assert.AreEqual(expected, result);
+        }
+
+        
     }
 }

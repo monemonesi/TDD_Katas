@@ -8,7 +8,7 @@ namespace RomanNumeralTDD.Library
     public class RomanNumConverter
     {
         /// <summary>
-        /// 
+        /// Convert all ranges of numbers in roman number
         /// </summary>
         /// <param name="num"></param>
         /// <returns></returns>
@@ -20,17 +20,92 @@ namespace RomanNumeralTDD.Library
             }
             else
             {
-                return ConvertNumLessThenTen(num);
+                return FindRange(num);
             }
 
         }
 
-        private static string ConvertNumLessThenTen(int num)
+        /// <summary>
+        /// Find the range of the number num
+        /// </summary>
+        /// <param name="num"></param>
+        /// <returns></returns>
+        private static string FindRange(int num)
+        {
+            if (num < 10)
+            {
+                return ConvertNumberFromZeroToNine(num);
+            }
+            else if (num < 99)
+            {
+                return ConvertNumberFromTenToNintyNine(num);
+            }
+
+            return String.Empty;
+        }
+
+        /// <summary>
+        /// Convert to romna all the numbers between 10 and 99
+        /// </summary>
+        /// <param name="num"></param>
+        /// <returns></returns>
+        private static string ConvertNumberFromTenToNintyNine(int num)
+        {
+            int units = num % 10;
+            int tens = num - units;
+
+            string romanTens = string.Empty;
+
+            switch (tens)
+            {
+                case 10:
+                    romanTens = "X";
+                    break;
+                case 20:
+                    romanTens = "XX";
+                    break;
+                case 30:
+                    romanTens = "XXX";
+                    break;
+                case 40:
+                    romanTens = "XL";
+                    break;
+                case 50:
+                    romanTens = "L";
+                    break;
+                case 60:
+                    romanTens = "LX";
+                    break;
+                case 70:
+                    romanTens = "LXX";
+                    break;
+                case 80:
+                    romanTens = "LXXX";
+                    break;
+                case 90:
+                    romanTens = "XC";
+                    break;
+
+                default:
+                    break;
+            }
+
+            romanTens += ConvertNumberFromZeroToNine(units);
+
+            return romanTens;
+        }
+
+        /// <summary>
+        /// Convert to roman all the numbers between 0 and 9
+        /// </summary>
+        /// <param name="num"></param>
+        /// <returns></returns>
+        private static string ConvertNumberFromZeroToNine(int num)
         {
             switch (num)
             {
                 case 0:
-                    return Constants.ErrorMessageForZero;
+                    return String.Empty;
                 case 1:
                     return "I";
                 case 2:
@@ -49,11 +124,9 @@ namespace RomanNumeralTDD.Library
                     return "VIII";
                 case 9:
                     return "IX";
-                case 10:
-                    return "X";
+                default:
+                    return string.Empty;
             }
-
-            return String.Empty;
         }
     }
 }
