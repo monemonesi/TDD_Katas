@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.271
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RomanNumeralTDD.Console", "RomanNumeralTDD\RomanNumeralTDD.Console.csproj", "{B7F8FB66-A870-41FF-8235-FC7EB890633C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RomanNumeralTDD.ConsoleUI", "RomanNumeralTDD\RomanNumeralTDD.ConsoleUI.csproj", "{B7F8FB66-A870-41FF-8235-FC7EB890633C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RomanNumeralTDD.Library", "RomanNumeralTDD.Library\RomanNumeralTDD.Library.csproj", "{69884C1B-FF67-473C-903F-A640BE932144}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RomanNumeralTDD.Library", "RomanNumeralTDD.Library\RomanNumeralTDD.Library.csproj", "{69884C1B-FF67-473C-903F-A640BE932144}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RomanNumeralTDD.Library.Tests", "RomanNumeralTDD.Library.Tests\RomanNumeralTDD.Library.Tests.csproj", "{B35658ED-BD3A-4F66-BE25-A0D45EE6A9DE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RomanNumeralTDD.Library.Tests", "RomanNumeralTDD.Library.Tests\RomanNumeralTDD.Library.Tests.csproj", "{B35658ED-BD3A-4F66-BE25-A0D45EE6A9DE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
