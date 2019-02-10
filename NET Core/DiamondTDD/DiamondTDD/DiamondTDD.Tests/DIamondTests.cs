@@ -25,5 +25,26 @@ namespace Tests
 
             Assert.AreEqual(expected, result);
         }
+
+        [Test]
+        public void Create_C()
+        {
+            string expected = "  A\n" + " B B\n" + "C   C\n" + " B B\n" + "  A\n";
+
+            string result = Diamond.Create('c');
+
+            Assert.AreEqual(expected, result);
+        }
+
+        [Test]
+        public void Create_D()
+        {
+            string expected = "   A\n" + "  B B\n" + " C   C\n" +"D     D\n"+
+                              " C   C\n" + "  B B\n" + "   A\n";
+
+            string result = Diamond.Create('D');
+
+            Assert.AreEqual(expected, result);
+        }
     }
 }
