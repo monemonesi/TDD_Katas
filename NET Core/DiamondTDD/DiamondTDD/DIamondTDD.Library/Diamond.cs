@@ -19,11 +19,29 @@ namespace DIamondTDD.Library
             //Upper half of diamond
             for (int i = 0; i <= letterId; i++)
             {
-                output += CreateLine(i);
+                if (i == 0)
+                {
+                    output += CreateFirstLine(letterId, i);
+                }
             }
 
 
             return output;
+        }
+
+        private static string CreateFirstLine(int letterId, int lineId)
+        {
+            return $"{LeftSpaces(letterId, lineId)}A\n";
+        }
+
+        private static string LeftSpaces(int letterId, int lineId)
+        {
+            string leftSpaces = string.Empty;
+            for (int j = 0; j < (letterId-lineId); j++)
+            {
+                leftSpaces += " ";
+            }
+            return leftSpaces;
         }
 
         private static string CreateLine(int i)

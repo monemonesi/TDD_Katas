@@ -7,8 +7,8 @@ namespace Tests
     {
 
 
-        [TestCase('a',"A")]
-        [TestCase('A',"A")]
+        [TestCase('a',"A\n")]
+        [TestCase('A',"A\n")]
         public void Create_A(char letter, string expected)
         {
             string result = Diamond.Create(letter);
