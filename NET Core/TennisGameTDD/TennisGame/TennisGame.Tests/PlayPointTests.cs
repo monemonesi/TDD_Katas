@@ -7,7 +7,7 @@ using NUnit.Framework;
 namespace TennisGame.Tests
 {
     
-    public class PointTests
+    public class PlayPointTests
     {
         [Test]
         public void PointShouldBeRandomlyAssigned()
