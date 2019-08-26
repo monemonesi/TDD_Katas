@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace TennisGame.Engine
+namespace TennisGame.Library
 {
-    public class Point
+    class PlayGame
     {
-
     }
 }
