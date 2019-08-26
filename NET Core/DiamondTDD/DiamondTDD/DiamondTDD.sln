@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.329
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiamondTDD.ConsoleUI", "DiamondTDD.ConsoleUI\DiamondTDD.ConsoleUI.csproj", "{0A0FC76E-E6FC-4047-83AB-F56E0843543F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiamondTDD.ConsoleUI", "DiamondTDD.ConsoleUI\DiamondTDD.ConsoleUI.csproj", "{0A0FC76E-E6FC-4047-83AB-F56E0843543F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DIamondTDD.Library", "DIamondTDD.Library\DIamondTDD.Library.csproj", "{4A36A0D9-5A04-48B5-98D0-AD2590C55E1F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DIamondTDD.Library", "DIamondTDD.Library\DIamondTDD.Library.csproj", "{4A36A0D9-5A04-48B5-98D0-AD2590C55E1F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiamondTDD.Tests", "DiamondTDD.Tests\DiamondTDD.Tests.csproj", "{1A900EBF-3A5A-4647-8DF3-C1B51452E6CE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiamondTDD.Tests", "DiamondTDD.Tests\DiamondTDD.Tests.csproj", "{1A900EBF-3A5A-4647-8DF3-C1B51452E6CE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
