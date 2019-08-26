@@ -14,40 +14,47 @@ namespace Tests
         public void Setup()
         {
             _pointPlayerMock = new Mock<IPointPlayer>();
-            _gamePlayer = new GamePlayer(_pointPlayerMock.Object);
         }
 
         [Test]
         public void WhenPlayerOneGetAllPointsWinsTheGame()
         {
             GivenPlayerOneWinningAllPoints();
-            WhenTheGameIsEvaluated();
-            ThenPlayerOneWinTheGame();
+            WhenTheGameIsPlayed();
+            ThenThePlayerWhoWinsTheGameIs(Players.player1);
         }
 
-        [TestCase(4, 0, Players.player1)]
-        [TestCase(6, 4, Players.player1)]
-        [TestCase(3, 5, Players.player2)]
-        public void AssignGameShouldReturnTheCorrectWinner(int playerOneScore, int playerTwoScore, Players expectedWinner)
+        [Test]
+        public void WhenPlayerTwoGetAllPointsWinsTheGame()
         {
-            GivenTheResultOf(playerOneScore, playerTwoScore);
-            WhenTheGameIsEvaluated();
-            ThenTheCorrectPlayerWin();
+            GivenPlayerTwoWinningAllPoints();
+            WhenTheGameIsPlayed();
+            ThenThePlayerWhoWinsTheGameIs(Players.player2);
         }
 
-        private void GivenTheResultOf(int playerOneScore, int playerTwoScore)
+        //[TestCase(4, 0, Players.player1)]
+        //[TestCase(6, 4, Players.player1)]
+        //[TestCase(3, 5, Players.player2)]
+        //public void AssignGameShouldReturnTheCorrectWinner(int playerOneScore, int playerTwoScore, Players expectedWinner)
+        //{
+        //    GivenTheResultOf(playerOneScore, playerTwoScore);
+        //    WhenTheGameIsEvaluated();
+        //    ThenTheCorrectPlayerWin();
+        //}
+
+        //private void GivenTheResultOf(int playerOneScore, int playerTwoScore)
+        //{
+        //    //_playPointMock.SetupSequence(p => p.AssignNextPoint())
+        //    //    .Returns()
+        //    _gamePlayer.
+        //}
+
+        private void ThenThePlayerWhoWinsTheGameIs(Players expectedWinner)
         {
-            //_playPointMock.SetupSequence(p => p.AssignNextPoint())
-            //    .Returns()
-
+            Assert.AreEqual(expectedWinner, _gamePlayer.GameWinner);
         }
 
-        private void ThenPlayerOneWinTheGame()
-        {
-            Assert.AreEqual(Players.player1, _gamePlayer.GameWinner);
-        }
-
-        private void WhenTheGameIsEvaluated()
+        private void WhenTheGameIsPlayed()
         {
             _gamePlayer.PlayGame();
         }
@@ -55,6 +62,13 @@ namespace Tests
         private void GivenPlayerOneWinningAllPoints()
         {
             _pointPlayerMock.Setup(pp => pp.AssignNextPoint()).Returns(0);
+            _gamePlayer = new GamePlayer(_pointPlayerMock.Object);
+        }
+
+        private void GivenPlayerTwoWinningAllPoints()
+        {
+            _pointPlayerMock.Setup(pp => pp.AssignNextPoint()).Returns(1);
+            _gamePlayer = new GamePlayer(_pointPlayerMock.Object);
         }
     }
 }
