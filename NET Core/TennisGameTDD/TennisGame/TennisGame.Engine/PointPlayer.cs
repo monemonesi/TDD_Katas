@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace TennisGame.Engine
+namespace TennisGame.Library
 {
-    public class PlayPoint : IPlayPoint
+    public class PointPlayer : IPointPlayer
     {
-        public int Point { get; private set; }
+        //public int Point { get; private set; }
 
         private readonly Random _rnd;
 
-        public PlayPoint()
+        public PointPlayer()
         {
             _rnd = new Random(2);
         }

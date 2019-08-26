@@ -1,18 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿//using System;
+//using System.Collections.Generic;
+//using System.Text;
 
-using NUnit.Framework;
+//using NUnit.Framework;
 
-namespace TennisGame.Tests
-{
+//namespace TennisGame.Tests
+//{
     
-    public class PlayPointTests
-    {
-        [Test]
-        public void PointShouldBeRandomlyAssigned()
-        {
+//    public class PlayPointTests
+//    {
+//        [Test]
+//        public void PointShouldBeCorrectlyAssignedToPlayerOneorTwo()
+//        {
             
-        }
-    }
-}
+//        }
+//    }
+//}

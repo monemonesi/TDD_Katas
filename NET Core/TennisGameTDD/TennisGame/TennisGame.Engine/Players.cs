@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace TennisGame.Engine
+namespace TennisGame.Library
 {
-    enum Player
+    public enum Players
     {
         player1,
         player2
