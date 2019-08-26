@@ -32,22 +32,23 @@ namespace Tests
             ThenThePlayerWhoWinsTheGameIs(Players.player2);
         }
 
-        //[TestCase(4, 0, Players.player1)]
-        //[TestCase(6, 4, Players.player1)]
-        //[TestCase(3, 5, Players.player2)]
-        //public void AssignGameShouldReturnTheCorrectWinner(int playerOneScore, int playerTwoScore, Players expectedWinner)
-        //{
-        //    GivenTheResultOf(playerOneScore, playerTwoScore);
-        //    WhenTheGameIsEvaluated();
-        //    ThenTheCorrectPlayerWin();
-        //}
+        [TestCase(4, 0, Players.player1)]
+        [TestCase(6, 4, Players.player1)]
+        [TestCase(3, 5, Players.player2)]
+        public void AssignGameShouldReturnTheCorrectWinner(int playerOneScore, int playerTwoScore, Players expectedWinner)
+        {
+            GivenTheResultOf(playerOneScore, playerTwoScore);
+            WhenTheGameIsPlayed();
+            ThenThePlayerWhoWinsTheGameIs( expectedWinner);
+        }
 
-        //private void GivenTheResultOf(int playerOneScore, int playerTwoScore)
-        //{
-        //    //_playPointMock.SetupSequence(p => p.AssignNextPoint())
-        //    //    .Returns()
-        //    _gamePlayer.
-        //}
+        private void GivenTheResultOf(int playerOneScore, int playerTwoScore)
+        {
+            _gamePlayer = new GamePlayer(_pointPlayerMock.Object);
+            _gamePlayer.PlayerOneScore = playerOneScore;
+            _gamePlayer.PlayerTwoScore = playerTwoScore;
+        }
+
 
         private void ThenThePlayerWhoWinsTheGameIs(Players expectedWinner)
         {

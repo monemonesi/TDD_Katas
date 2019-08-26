@@ -7,51 +7,62 @@ namespace TennisGame.Library
     public class GamePlayer : IGamePlayer
     {
         private IPointPlayer _pointPlayer;
-        private int _playerOneScore, _playerTwoScore;
         public Players? GameWinner { get; private set; }
+        public int PlayerOneScore { get ; set; }
+        public int PlayerTwoScore { get ; set ; }
 
         public GamePlayer(IPointPlayer playPoint)
         {
             _pointPlayer = playPoint;
             GameWinner = null;
+            PlayerOneScore = 0;
+            PlayerTwoScore = 0;
         }
 
         public void PlayGame()
         {
             while(GameWinner == null)
             {
-                PlayPoint();
-                
                 CheckIfTheGameHasAWinner();
+                PlayPoint(); 
             }
         }
 
         private void PlayPoint()
         {
-            int point = _pointPlayer.AssignNextPoint();
-            if (point == 0)
+            if (PlayerOneWinsThePoint())
             {
-                _playerOneScore++;
+                PlayerOneScore++;
             }
             else
             {
-                _playerTwoScore++;
+                PlayerTwoScore++;
             }
+        }
+
+        private bool PlayerOneWinsThePoint()
+        {
+            return _pointPlayer.AssignNextPoint() == 0 ? true : false;
         }
 
         private void CheckIfTheGameHasAWinner()
         {
-            int scoreDiff = Math.Abs(_playerOneScore - _playerTwoScore);
-            if(_playerOneScore >= 4 && scoreDiff >= 2)
+            int scoreDiff = Math.Abs(PlayerOneScore - PlayerTwoScore);
+
+
+            if (PlayerOneScore >= 4 && scoreDiff >= 2)
             {
                 GameWinner = Players.player1;
+                return;
             }
 
-            if(_playerTwoScore >=4 && scoreDiff >= 2)
+            if (PlayerTwoScore >= 4 && scoreDiff >= 2)
             {
                 GameWinner = Players.player2;
+                return;
             }
 
         }
+
     }
 }

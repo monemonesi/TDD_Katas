@@ -6,13 +6,11 @@ namespace TennisGame.Library
 {
     public class PointPlayer : IPointPlayer
     {
-        //public int Point { get; private set; }
-
         private readonly Random _rnd;
 
-        public PointPlayer()
+        public PointPlayer(int seed)
         {
-            _rnd = new Random(2);
+            _rnd = new Random(seed);
         }
 
         public int AssignNextPoint()
